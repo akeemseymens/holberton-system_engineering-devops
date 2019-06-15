@@ -1,1 +1,1 @@
-This is a repository for project 0x00. Shell, basics
+This repository is to work on devops Projects.
