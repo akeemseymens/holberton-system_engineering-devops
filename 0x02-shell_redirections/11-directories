@@ -1,0 +1,2 @@
+#!/bin/b -lR ./ | wc -lash
+find . -type d -print | wc -l
