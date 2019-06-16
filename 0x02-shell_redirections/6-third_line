@@ -1,2 +1,2 @@
 #!/bin/bash
-awk --lines=3  iacta
+tail +3  iacta
