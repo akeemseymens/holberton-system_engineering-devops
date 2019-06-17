@@ -1,2 +1,2 @@
 #!/bin/bash
-find -iname 807* | sort | uniq -u
+find -iname 807* | sort | uniq -u | cut -f1
