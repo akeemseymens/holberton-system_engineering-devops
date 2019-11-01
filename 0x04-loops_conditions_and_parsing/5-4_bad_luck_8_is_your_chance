@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# Displays "Holberton School" 10 times  using until
+s=1
+while [ $s -le 10 ]
+do
+    if [ $s -eq 4 ]
+    then
+	echo "bad luck"
+    elif  [ $s -eq 8 ]
+    then
+	echo "good luck"
+    else
+	echo "Holberton School"
+
+    fi
+
+     ((s++))
+done
