@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Displaying "Holberton School" using while.
+s=1
+while [ $s -le 10 ]
+do
+	echo "Holberton School"
+	((s++))
+done

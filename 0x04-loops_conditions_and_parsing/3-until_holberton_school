@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Displays "Holberton School" 10 times  using until
+s=1
+until [ $s -le 10 ]
+do
+	echo "Holberton School"
+	((s++))
+done
