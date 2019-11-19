@@ -1,2 +1,2 @@
 #!/usr/bin/env ruby
-grep 
+puts ARGV[0].scan(/(?<=from:|to:|flags:).*?(?=\])/).join(", ")
