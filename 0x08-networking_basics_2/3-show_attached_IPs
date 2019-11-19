@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+hostname --all-ip-addresses || hostname -Iq
