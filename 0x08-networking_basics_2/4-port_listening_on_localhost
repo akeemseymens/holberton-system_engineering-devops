@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-sudo nc -lvu localhost 98
+nc -lvu localhost 98
