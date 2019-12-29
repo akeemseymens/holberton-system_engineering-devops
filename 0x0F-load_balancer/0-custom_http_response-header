@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Configure Nginx HTTP response contains a custom header (on web-01 and web-02)
+apt-get -y update
+apt-get -y install nginx
+ufw allow 'Nginx HTTP'
+echo "Holberton School" > /var/www/html/index.html
+sed -i "/listen 80 default_server/a rewrite ^/redirect_me https://www.youtube.com/watch?v=dQw4w9WgXcQ permanent;" /etc/nginx/sites-available/default
+echo "Ceci n'est pas une page" > /usr/share/nginx/html/custom_404.html
+sed -i "/listen 80 default_server/a error_page 404 /custom_404.html; location = /custom_404.html { root /usr/share/nginx/html; internal; }" /etc/nginx/sites-av\
+ailable/default
+sed -i "/listen 80 default_server/a add_header X-Served-By $HOSTNAME;" /etc/nginx/sites-available/default
+service nginx restart
