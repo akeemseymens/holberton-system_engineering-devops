@@ -35,15 +35,13 @@ defaults
 	errorfile 502 /etc/haproxy/errors/502.http
 	errorfile 503 /etc/haproxy/errors/503.http
 	errorfile 504 /etc/haproxy/errors/504.http
-frontend lb
-    bind *:80
-    mode http
-    default_backend bnd
-    
-backend bnd
-    balance roundrobin
-    server 812-web-01 35.243.153.133 check
-    server 812-web-02 35.231.218.160 check
+	
+	
+backend web-backend
+    	balance roundrobin
+    	edirect scheme https if !{ ssl_fc }
+    	server 812-web-01 35.243.153.133 check
+    	server 812-web-02 35.231.218.160 check
     
 frontend http
         bind *:80
