@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+#some note
 s_info()
 {
     dig +nocmd "$2.$1" +noall +answer | awk -v subdomain="$2" '{print "The subdomain " subdomain " is a " $4 " record and points to " $5}'
