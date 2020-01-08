@@ -39,7 +39,18 @@ frontend lb
     bind *:80
     mode http
     default_backend bnd
+    
 backend bnd
     balance roundrobin
     server 812-web-01 35.243.153.133 check
     server 812-web-02 35.231.218.160 check
+    
+frontend http
+        bind *:80
+        reqadd X-Forwarded-Proto:\ http
+        default_backend web-backend
+
+frontend https
+        bind *:443 ssl crt /etc/haproxy/ssl/www.seymens.tech.pem
+        reqadd X-Forwarded-Proto:\ https
+        default_backend web-backend
