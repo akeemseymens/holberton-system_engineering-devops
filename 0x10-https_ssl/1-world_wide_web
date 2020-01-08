@@ -1,16 +1,19 @@
 #!/usr/bin/env bash
-s_info()
-{
-    dig +nocmd "$2.$1" +noall +answer | awk -v subdomain="$2" '{print "The subdomain " subdomain " is a " $4 " record and points to " $5}'
-}
-
-if[ -z "$2"];
-then
-    dflt_dmns=( 'www' 'lb-01' 'web-01' 'web-02' )
-    for d in "${dflt_dms[*]}"
-    do
-	s_info "$1" "$d"
-    done
-else
-    s_info "$1" "$2"
-fi
+#some note on dig
+s_info()                                                                                                                        
+{                                                                                                                               
+    dig +noall +answer "$2.$1" | awk -v subdomain="$2" '{print "The subd\                                                       
+omain " subdomain " is a " $4 " record and points to " $5}'                                                                     
+}                                                                                                                               
+                                                                                                                                
+if [ $# -eq 2 ]                                                                                                                 
+then                                                                                                                            
+    SUB_DOMAINS=($2)                                                                                                            
+else                                                                                                                            
+    SUB_DOMAINS=(www lb-01 web-01 web-02)                                                                                       
+fi                                                                                                                              
+                                                                                                                                
+for SUB in "${SUB_DOMAINS[@]}"                                                                                                  
+do                                                                                                                              
+    s_info "$1" "$SUB"                                                                                                          
+done 
