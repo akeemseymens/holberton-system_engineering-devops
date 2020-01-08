@@ -14,5 +14,5 @@ fi
 
 for SUB in "${SUB_DOMAINS[@]}"
 do
-    display_info "$1" "$SUB"
+    s_info "$1" "$SUB"
 done
