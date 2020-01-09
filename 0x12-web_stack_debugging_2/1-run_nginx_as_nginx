@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Run Nginx as the  user, listening on port 8080
+# Run Nginx as the user, listening on port 8080
 pkill apache2
 chmod 777 /etc/nginx/nginx.conf
 chown nginx:nginx /etc/nginx/
