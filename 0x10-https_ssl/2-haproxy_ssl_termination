@@ -2,9 +2,8 @@ global
 	log /dev/log	local0
 	log /dev/log	local1 notice
 	chroot /var/lib/haproxy
-	stats socket /run/haproxy/admin.sock mode 660 level admin expose-fd lis
+	stats socket /run/haproxy/admin.sock mode 660 level admin expose-fd listeners
 	tune.ssl.default-dh-param 2048
-teners
 	stats timeout 30s
 	user haproxy
 	group haproxy
@@ -27,6 +26,7 @@ defaults
 	mode	http
 	option	httplog
 	option	dontlognull
+	option  forwardfor
         timeout connect 5000
         timeout client  50000
         timeout server  50000
@@ -56,6 +56,3 @@ backend bnd
     server 812-web01 35.243.153.133:80 check
     server 812-web02 35.231.218.160:80 check
     redirect scheme https if !{ ssl_fc }
-
-backend letsencrypt-backend
-   server letsencrypt 127.0.0.1:54321
