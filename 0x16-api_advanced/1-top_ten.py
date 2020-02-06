@@ -8,10 +8,7 @@ import requests
 def top_ten(subreddit):
     '''return top ten posts of subreddit'''
     url = 'https://www.reddit.com/r/{}/hot.json'.format(subreddit)
-    agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64)\
-            AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130\
-            Safari/537.36"
-    headers = {"User-Agent": agent}
+    headers = {"User-Agent": "My-User-Agent"}
     r = requests.get(url, headers=headers).json()
     if r.get('error') == 404:
         print('None')
